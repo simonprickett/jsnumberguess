@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Stuff</title>
-		<!-- Scale for mobile browsers -->
+		<title>JavaScript Number Guess</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no">
+		<script src="js/numberguess.js"></script>
 		<!-- TODO add a CSS file and make it look good -->
-		<!-- TODO add a js file and move the <script> into there -->
 		<!-- TODO enforce that the user enters something for a guess -->
 		<!-- TODO enforce that the user enters an integer for a guess -->
 		<!-- TODO let the user submit a guess by pressing return -->
@@ -14,7 +13,7 @@
 		<div id="statusArea">
 			<p>Enter a number and click the button...</p>
 		</div>
-		<input type="text" id="userguess"/>
+		<input type="number" id="userguess"/>
 		<div id="buttonArea">
 			<p>Guess</p>
 		</div>
@@ -24,46 +23,4 @@
 			</ol>
 		<div>
 	</body>
-	<!-- Everything in <script> can be moved to a JavaScript file -->
-	<script>
-		function writeMessage(elementId, message, appendMessage) {
-			var elemToUpdate = document.getElementById(elementId);
-			if (appendMessage) {
-				elemToUpdate.innerHTML = elemToUpdate.innerHTML + message;
-			} else {
-				elemToUpdate.innerHTML = message;
-			}
-		};
-
-		function getNewSecretNumber() {
-			return Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-		};
-
-		var secretNumber = getNewSecretNumber();
-		var guessBtn = document.getElementById('buttonArea');
-
-		guessBtn.addEventListener('click', function() {
-
-			var userGuessed = document.getElementById('userguess').value;
-			var statusArea = document.getElementById('statusArea');
-			var historyList = document.getElementById('historyList');
-
-			if (userGuessed == secretNumber) {
-				// Got it
-				writeMessage('statusArea', '<p>You got me I was thinking ' + secretNumber + ', let\'s go again...</p>');
-				writeMessage('historyList', '<ul></ul>');
-				secretNumber = getNewSecretNumber();
-			} else if (userGuessed < secretNumber) {
-				// User needs to guess higher
-				writeMessage('statusArea', '<p>You need to guess higher than ' + userGuessed + '</p>');
-				writeMessage('historyList', '<li>' + userGuessed +' (too low)</li>', true);
-			} else {
-				// User needs to guess lower
-				writeMessage('statusArea', '<p>You need to guess lower than ' + userGuessed + '</p>');
-				writeMessage('historyList', '<li>' + userGuessed + ' (too high)</li>', true);
-			}
-
-			document.getElementById('userguess').value = '';
-		});
-	</script>
 </html>
