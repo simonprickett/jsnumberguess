@@ -1,26 +1,34 @@
 <!DOCTYPE html>
+<!-- Number Guessing Game HTML -->
 <html>
 	<head>
 		<title>JavaScript Number Guess</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no">
 		<script src="js/numberguess.js"></script>
-		<!-- TODO add a CSS file and make it look good -->
-		<!-- TODO enforce that the user enters something for a guess -->
-		<!-- TODO enforce that the user enters an integer for a guess -->
+		<link rel="stylesheet" type="text/css" href="css/numberguess.css">
 		<!-- TODO let the user submit a guess by pressing return -->
+		<!-- TODO add link to the github repo here -->
+		<!-- TODO hide and show history area as needed -->
 	</head>
 	<body>
-		<div id="statusArea">
-			<p>Enter a number and click the button...</p>
+		<div id="game">
+			<h1>Number Guessing Game</h1>
+			<div id="statusArea">
+				<p>Enter a number between 1-100 and click the button...</p>
+			</div>
+			<input type="number" id="userGuess"/>
+			<div id="buttonArea" class="button">
+				Guess
+			</div>
+			<div id="historyArea">
+				<h2>Your Previous Guesses</h2>
+				<ol id="historyList">
+				</ol>
+			</div>
+			<div id="footerArea">
+				This is a basic demo by Simon Prickett.  You can find the code 
+				on <a href="TODO" target="_blank">GitHub</a>.
+			</div>
 		</div>
-		<input type="number" id="userguess"/>
-		<div id="buttonArea">
-			<p>Guess</p>
-		</div>
-		<div id="historyArea">
-			<p>Your guesses:</p>
-			<ol id="historyList">
-			</ol>
-		<div>
 	</body>
 </html>
